@@ -1,4 +1,4 @@
-import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
+import 'package:datetime_picker_formfield_new/datetime_picker_formfield_new.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
@@ -19,7 +19,7 @@ class _newMemberState extends State<newMember>
     with SingleTickerProviderStateMixin {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   DatabaseReference dbRef =
-      FirebaseDatabase.instance.reference().child("Users");
+      FirebaseDatabase.instance.ref().child("Users");
   late String name, email, gender;
   late DateTime date;
   final iconPerPronoun = {
@@ -82,12 +82,7 @@ class _newMemberState extends State<newMember>
                       Vx.blue500,
                       Vx.purple600,
                     ], begin: Alignment.topLeft, end: Alignment.bottomRight))
-                    .make()
-                // .shimmer(
-                //   primaryColor: Vx.blue500,
-                //   secondaryColor: Vx.purple500
-                // )
-                ,
+                    .make(),
                 Center(
                   child: FadeTransition(
                     opacity: _animationController,

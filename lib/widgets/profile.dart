@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-class profile extends StatelessWidget {
 
-  _linkedinURL(String $link_id) async
-  {
-    var url = /*'https://linkedin.com/in/' + */$link_id;
+class profile extends StatelessWidget {
+  _linkedinURL(String $link_id) async {
+    var url = /*'https://linkedin.com/in/' + */ $link_id;
     if (await canLaunch(url))
       await launch(url);
     else
@@ -17,7 +16,12 @@ class profile extends StatelessWidget {
   String linkedinurl;
   String img_url;
 
-  profile({required this.name, required this.skill, required this.batch, required this.linkedinurl, required this.img_url});
+  profile(
+      {required this.name,
+      required this.skill,
+      required this.batch,
+      required this.linkedinurl,
+      required this.img_url});
 
   @override
   Widget build(BuildContext context) {
@@ -32,30 +36,30 @@ class profile extends StatelessWidget {
             },
             child: Container(
               height: 510,
-              padding: EdgeInsets.fromLTRB(40, 0, 40, 0),
-              margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+              padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
+              margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
               decoration: BoxDecoration(
                 color: Colors.grey[900],
                 borderRadius: BorderRadius.circular(20.0),
                 boxShadow: [
-                  BoxShadow(
+                  const BoxShadow(
                       color: Colors.black87,
                       spreadRadius: 0,
                       blurRadius: 15.0,
-                      offset: Offset(5.0, 5.0)
-                  )
+                      offset: Offset(5.0, 5.0))
                 ],
               ),
               child: Center(
                 child: Column(
                   children: <Widget>[
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
                     SizedBox(
                       width: 200,
                       height: 250,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(15),
-                        child: Image.network(img_url,
+                        child: Image.network(
+                          img_url,
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -64,32 +68,34 @@ class profile extends StatelessWidget {
                         backgroundImage: AssetImage(pic),
                         radius:100,
                       ),*/
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Text(
-                      '\n' + name +
-                          '\n\n' + skill +
-                          '\n\n' + batch,
-                      style: TextStyle(
+                      '\n' + name + '\n\n' + skill + '\n\n' + batch,
+                      style: const TextStyle(
                         color: Colors.white,
                       ),
                     ),
-                    SizedBox(height: 20),
-                    RaisedButton.icon(
-                      color: Colors.grey[900],
+                    const SizedBox(height: 20),
+                    ElevatedButton.icon(
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.grey[900],
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                          side: const BorderSide(color: Colors.white),
+                        ),
+                      ),
                       onPressed: () {
                         _linkedinURL(linkedinurl);
                       },
-                      icon: Icon(Icons.format_align_justify,
+                      icon: const Icon(
+                        Icons.format_align_justify,
                         color: Colors.white,
                       ),
-                      label: Text('LinkedIn Profile',
+                      label: const Text(
+                        'LinkedIn Profile',
                         style: TextStyle(
                           color: Colors.white,
                         ),
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Colors.white),
                       ),
                     ),
                   ],

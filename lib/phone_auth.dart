@@ -21,24 +21,24 @@ class PhoneAuth {
       // Todo After Verification Complete
       Navigator.of(context).pop();
     };
-//
+
     final PhoneVerificationFailed verificationFailed =
         (FirebaseAuthException authException) {
       print('Auth Exception is ${authException.message}');
     };
 
-//
+
     final PhoneCodeSent codeSent =
         (String verificationId, int? forceResendingToken) {
       print('verification id is $verificationId');
       this.verificationId = verificationId;
     };
-//
+
     final PhoneCodeAutoRetrievalTimeout codeAutoRetrievalTimeout =
         (String verificationId) {
       this.verificationId = verificationId;
     };
-//
+
     await auth.verifyPhoneNumber(
       // mobile no. with country code
       phoneNumber: phoneNo,

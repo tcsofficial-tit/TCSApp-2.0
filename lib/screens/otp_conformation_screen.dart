@@ -31,7 +31,7 @@ class _OTPConfirmationPageState extends State<OTPConfirmationPage>
   final FocusNode _blankFocusNode = FocusNode();
   late PhoneAuth phoneAuth;
   bool isLoading = false;
-  var data = new PrimitiveWrapper(false);
+  PrimitiveWrapper data = PrimitiveWrapper(false);
   @override
   void initState() {
     super.initState();
@@ -215,9 +215,7 @@ class _OTPConfirmationPageState extends State<OTPConfirmationPage>
 
   showRegisteredMobileNumber() {
     final x = widget.phoneNo;
-    return (x.substring(0, x.length - 10) +
-            " " +
-            x.substring(x.length - 10, x.length))
+    return ("${x.substring(0, x.length - 10)} ${x.substring(x.length - 10, x.length)}")
         .text
         .xl4
         .bold
